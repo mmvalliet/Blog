@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static tailwind_tags %}
+{%load static%}
+<html lang="en">
+<head>
+    {% tailwind_css %}
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!--Alphine -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
+        <!-- boxicon-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <!-- jquery-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block extra_head %}{% endblock extra_head %}
+
+    <title>{% block title %}blog{% endblock title %}</title>
+</head>
+
+<body class="bg-gray-100 dark:bg-black flex">
+
+    {% block navbar %}{% endblock navbar %}
+
+    <div class="flex h-full w-full ">
+        <!--left sidebar-->
+        <div class="pt-20 h-screen sm:w-1/5 lg:w-1/5 xl:w-1/5 xl:flex flex-col  top-0 left-0 sticky">
+        {% block left_sidebar %}{% endblock left_sidebar %}
+        </div>
+
+        <!--main content-->
+        <div class="w-full sm:w-3/5 lg:w-3/5 xl:w-3/5 pt-20 lg:pt-20 px-2 margin-auto">
+        {% block content %}{% endblock content %}
+        </div>
+
+        <div class="w-1/5 pt-20 h-full  xl:block px-4 fixed top-0 right-0">
+        {% block right_sidebar %}{% endblock right_sidebar %}
+        </div>
+    </div>
+    {% block javascript %}{% endblock javascript %}
+</body>
+</html>
